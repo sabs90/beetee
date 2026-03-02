@@ -59,7 +59,7 @@ export function SleepTrendChart({ entries }: Props) {
   const data = [...entries]
     .sort((a, b) => a.date.localeCompare(b.date))
     .map((e) => ({
-      date: e.date.slice(5), // MM-DD
+      date: e.date.slice(8) + '/' + e.date.slice(5, 7), // DD/MM
       lightsOut: timeToDecimal(e.lights_out_time),
       fellAsleep: timeToDecimal(e.fell_asleep_time),
       delta: calcMinutesBetween(e.lights_out_time.slice(0, 5), e.fell_asleep_time.slice(0, 5)),
